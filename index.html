@@ -1,57 +1,142 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convite — Isadora</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Convite Isadora</title>
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+            font-family: 'Cinzel', serif;
+        }
+
+        /* ----------- PÁGINA 1 ----------- */
+        #page1 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: url("assets/fundo-animado.gif") center/cover no-repeat;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 3;
+        }
+
+        #carta {
+            width: 90vw;        /* faz ocupar 90% da tela do celular */
+            max-width: 600px;   /* limite no PC */
+            height: auto;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        /* Estrela piscando */
+        .estrela {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            animation: brilho 1.4s infinite alternate ease-in-out;
+        }
+
+        @keyframes brilho {
+            from { opacity: 0.2; transform: scale(0.8); }
+            to   { opacity: 1;   transform: scale(1.2); }
+        }
+
+        /* ----------- PÁGINA 2 ----------- */
+        #page2 {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            background: url("assets/fundo-animado.gif") center/cover no-repeat;
+            flex-direction: column;
+            z-index: 1;
+        }
+
+        #convite {
+            width: 100vw;        /* ocupa a tela toda */
+            max-width: 600px;    /* limite em telas grandes */
+            height: auto;
+            animation: subir 3s infinite ease-in-out;
+        }
+
+        @keyframes subir {
+            0%   { transform: translateY(0); opacity: 1; }
+            50%  { transform: translateY(-10px); opacity: 0.9; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+
+        /* ----------- BOTÕES FLUTUANTES ----------- */
+        .btns {
+            position: absolute;
+            bottom: 20px;
+            display: flex;
+            gap: 15px;
+            z-index: 999;
+        }
+
+        .btns img {
+            width: 60px;
+            height: 60px;
+        }
+
+        /* ----------- ANIMAÇÃO DE TRANSIÇÃO ----------- */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to   { opacity: 1; }
+        }
+    </style>
+
 </head>
 <body>
 
-<!-- FUNDO COM BRILHOS -->
-<div class="animated-bg"></div>
+    <!-- ------------- PÁGINA 1 ------------- -->
+    <div id="page1" onclick="abrirConvite()">
 
-<!-- ======================== -->
-<!--        PÁGINA 1          -->
-<!-- ======================== -->
-<section id="page1" class="page active">
+        <img src="assets/carta.png" id="carta">
 
-  <div class="card-container" id="openCard">
-    <img src="assets/carta.png" class="card" alt="Carta do convite">
-  </div>
+        <!-- estrelas piscando -->
+        <img src="assets/estrela.gif" class="estrela" style="top:10%; left:20%;">
+        <img src="assets/estrela.gif" class="estrela" style="top:70%; left:70%;">
+        <img src="assets/estrela.gif" class="estrela" style="top:30%; left:80%;">
 
-  <p class="tap-text">✨ Toque para abrir ✨</p>
+    </div>
 
-</section>
+    <!-- ------------- PÁGINA 2 ------------- -->
+    <div id="page2">
 
-<!-- ======================== -->
-<!--        PÁGINA 2          -->
-<!-- ======================== -->
-<section id="page2" class="page">
+        <audio id="musica" src="assets/music.mp3"></audio>
 
-  <div class="convite-container">
-    <img src="assets/convite.png" class="convite-img" alt="Convite Isadora">
-  </div>
+        <img src="assets/convite.png" id="convite">
 
-  <!-- BOTÕES FLUTUANTES IGUAL JOLIE -->
-  <div class="floating-buttons">
-    <button onclick="openMaps()">📍 Local</button>
-    <button onclick="confirmarPresenca()">💬 Confirmar Presença</button>
-    <button onclick="openDress()">👗 Dress Code</button>
-    <button onclick="openPresentes()">🎁 Presentes</button>
-  </div>
+        <!-- BOTÕES FLUTUANTES ESTILO JOLIE -->
+        <div class="btns">
+            <a href="https://maps.google.com" target="_blank"><img src="assets/btn-maps.png"></a>
+            <a href="https://wa.me/seunumerowhatsapp" target="_blank"><img src="assets/btn-confirmar.png"></a>
+            <a href="https://listadepresentes.com" target="_blank"><img src="assets/btn-presentes.png"></a>
+        </div>
 
-</section>
+    </div>
 
-<!-- MODAL PRESENTES -->
-<div id="modal-presentes" class="modal">
-  <div class="modal-content">
-    <h2>🎁 Lista de Presentes</h2>
-    <p>Adicione links aqui depois.</p>
-    <button onclick="closePresentes()" class="close-btn">Fechar</button>
-  </div>
-</div>
+    <script>
+        function abrirConvite() {
+            document.getElementById("page1").style.display = "none";
+            document.getElementById("page2").style.display = "flex";
 
-<script src="script.js"></script>
+            let audio = document.getElementById("musica");
+            audio.volume = 0.4;
+            audio.play();
+        }
+    </script>
+
 </body>
 </html>

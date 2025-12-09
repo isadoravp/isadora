@@ -2,63 +2,7 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: 'Georgia', serif;
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
-}
-
-/* =============================
-   GRADIENTE COMUM PARA AMBAS
-============================= */
-.page1, .page2 {
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-}
-
-/* =============================
-   PARTÍCULAS BRILHANTES (PÁG 1)
-============================= */
-.page1 .particle {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.8;
-  animation: sparkle 5s linear infinite;
-}
-
-@keyframes sparkle {
-  0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
-  50% { transform: translateY(-100px) scale(1.2); opacity: 1; }
-  100% { transform: translateY(0) scale(0.5); opacity: 0.8; }
-}
-
-/* =============================
-   ESTRELAS (PÁG 2)
-============================= */
-.page2 .star {
-  position: absolute;
-  background: #fff;
-  width: 2px;
-  height: 2px;
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: twinkle 2s infinite alternate;
-}
-
-@keyframes twinkle {
-  0% { opacity: 0.2; transform: scale(0.5); }
-  50% { opacity: 1; transform: scale(1.2); }
-  100% { opacity: 0.2; transform: scale(0.5); }
-}
-
-/* =============================
-   RESPONSIVIDADE
-============================= */
-@media (max-width: 768px) {
-  .page1, .page2 {
-    height: 100vh;
-  }
+  background: #000;
 }
 
 .page {

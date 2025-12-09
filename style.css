@@ -5,7 +5,9 @@ body {
   background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
 }
 
-/* ===== GRADIENTE COMUM PARA AMBAS AS PÁGINAS ===== */
+/* =============================
+   GRADIENTE COMUM PARA AMBAS
+============================= */
 .page1, .page2 {
   background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
   width: 100%;
@@ -14,7 +16,9 @@ body {
   position: relative;
 }
 
-/* ===== PARTÍCULAS BRILHANTES (PÁGINA 1) ===== */
+/* =============================
+   PARTÍCULAS BRILHANTES (PÁG 1)
+============================= */
 .page1 .particle {
   position: absolute;
   border-radius: 50%;
@@ -29,7 +33,9 @@ body {
   100% { transform: translateY(0) scale(0.5); opacity: 0.8; }
 }
 
-/* ===== ESTRELAS (PÁGINA 2) ===== */
+/* =============================
+   ESTRELAS (PÁG 2)
+============================= */
 .page2 .star {
   position: absolute;
   background: #fff;
@@ -46,6 +52,14 @@ body {
   100% { opacity: 0.2; transform: scale(0.5); }
 }
 
+/* =============================
+   RESPONSIVIDADE
+============================= */
+@media (max-width: 768px) {
+  .page1, .page2 {
+    height: 100vh;
+  }
+}
 
 .page {
   width: 100vw;

@@ -2,8 +2,41 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: 'Georgia', serif;
-  background: #000;
+  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
 }
+
+body.page1 {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
+  position: relative;
+}
+
+/* Partículas brilhantes */
+.particle {
+  position: absolute;
+  border-radius: 50%;
+  background: #fff;
+  opacity: 0.8;
+  animation: sparkle 5s linear infinite;
+}
+
+@keyframes sparkle {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(-100px) scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0.8;
+  }
+}
+
 
 .page {
   width: 100vw;

@@ -5,16 +5,17 @@ body {
   background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
 }
 
-body.page1 {
-  margin: 0;
+/* ===== GRADIENTE COMUM PARA AMBAS AS PÁGINAS ===== */
+.page1, .page2 {
+  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
+  width: 100%;
   height: 100vh;
   overflow: hidden;
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
   position: relative;
 }
 
-/* Partículas brilhantes */
-.particle {
+/* ===== PARTÍCULAS BRILHANTES (PÁGINA 1) ===== */
+.page1 .particle {
   position: absolute;
   border-radius: 50%;
   background: #fff;
@@ -23,18 +24,26 @@ body.page1 {
 }
 
 @keyframes sparkle {
-  0% {
-    transform: translateY(0) scale(0.5);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-100px) scale(1.2);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(0) scale(0.5);
-    opacity: 0.8;
-  }
+  0% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+  50% { transform: translateY(-100px) scale(1.2); opacity: 1; }
+  100% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+}
+
+/* ===== ESTRELAS (PÁGINA 2) ===== */
+.page2 .star {
+  position: absolute;
+  background: #fff;
+  width: 2px;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(0.5); }
 }
 
 

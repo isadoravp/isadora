@@ -16,15 +16,15 @@ document.getElementById("openCard").addEventListener("click", () => {
 
 /* BOTÕES */
 function openMaps() {
-  window.open("https://maps.google.com", "_blank");
+  window.open("https://maps.app.goo.gl/v3op1xUGUkmf3ySb9", "_blank");
 }
 
 function confirmarPresenca() {
-  window.open("https://wa.me/", "_blank");
+  window.open("https://wa.me/5551992226662", "_blank");
 }
 
 function openDress() {
-  alert("Vestimenta: Traje Social / Gala");
+  alert("Vestimenta: Esporte Fino");
 }
 
 function openPresentes() {

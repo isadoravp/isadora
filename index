@@ -1,193 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
+<meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Convite Isadora – 15 anos</title>
-
-<style>
-/* ---------------------- RESET ---------------------- */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/* ---------------------- GERAL ---------------------- */
-body, html {
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    font-family: 'Cinzel', serif;
-}
-
-/* ---------------------- TELAS ---------------------- */
-.page {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transition: opacity 0.8s ease, transform 0.9s ease;
-}
-
-/* Página 1 */
-#page1 {
-    background: url("img/pagina1.png") no-repeat center/cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-/* Animação de brilho para estrelas */
-@keyframes twinkle {
-    0% {opacity: 0.3;}
-    50% {opacity: 1;}
-    100% {opacity: 0.3;}
-}
-
-.star {
-    position: absolute;
-    width: 40px;
-    animation: twinkle 1.5s infinite ease-in-out;
-}
-
-/* Página 2 */
-#page2 {
-    opacity: 0;
-    transform: scale(1.2);
-    pointer-events: none;
-    background: url("img/pagina2.png") no-repeat center/cover;
-}
-
-/* Ativa página 2 */
-#page2.active {
-    opacity: 1;
-    transform: scale(1);
-    pointer-events: auto;
-}
-
-/* ---------------------- FUNDO ANIMADO ESTRELAS ---------------------- */
-.stars {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    pointer-events: none;
-}
-
-.starFloat {
-    position: absolute;
-    width: 6px;
-    height: 6px;
-    background: radial-gradient(circle, #fff, transparent);
-    border-radius: 50%;
-    animation: floatUp linear infinite;
-}
-
-@keyframes floatUp {
-    0% {transform: translateY(100vh) scale(0.3);}
-    100% {transform: translateY(-10vh) scale(1);}
-}
-
-/* ---------------------- BOTÕES JOLIE ---------------------- */
-.buttons {
-    position: fixed;
-    bottom: 20px;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    z-index: 50;
-}
-
-.btnJolie {
-    width: 70px;
-    height: 70px;
-    background: rgba(255,255,255,0.2);
-    border-radius: 50%;
-    backdrop-filter: blur(4px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 13px;
-    color: #fff;
-    border: 1px solid rgba(255,255,255,0.5);
-    text-align: center;
-    padding: 5px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.btnJolie:hover {
-    transform: scale(1.1);
-    background: rgba(255,255,255,0.35);
-}
-</style>
+<title>Convite — Isadora</title>
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ======================= PÁGINA 1 ======================= -->
-<div id="page1" class="page">
+<!-- FUNDO COM BRILHOS -->
+<div class="animated-bg"></div>
 
-    <!-- Estrelas piscando -->
-    <img class="star" src="img/estrela.png" style="top:20%; left:25%;">
-    <img class="star" src="img/estrela.png" style="top:60%; left:70%;">
-    <img class="star" src="img/estrela.png" style="top:75%; left:40%;">
-    
+<!-- ======================== -->
+<!--        PÁGINA 1          -->
+<!-- ======================== -->
+<section id="page1" class="page active">
+
+  <div class="card-container" id="openCard">
+    <img src="assets/carta.png" class="card" alt="Carta do convite">
+  </div>
+
+  <p class="tap-text">✨ Toque para abrir ✨</p>
+
+</section>
+
+<!-- ======================== -->
+<!--        PÁGINA 2          -->
+<!-- ======================== -->
+<section id="page2" class="page">
+
+  <div class="convite-container">
+    <img src="assets/convite.png" class="convite-img" alt="Convite Isadora">
+  </div>
+
+  <!-- BOTÕES FLUTUANTES IGUAL JOLIE -->
+  <div class="floating-buttons">
+    <button onclick="openMaps()">📍 Local</button>
+    <button onclick="confirmarPresenca()">💬 Confirmar Presença</button>
+    <button onclick="openDress()">👗 Dress Code</button>
+    <button onclick="openPresentes()">🎁 Presentes</button>
+  </div>
+
+</section>
+
+<!-- MODAL PRESENTES -->
+<div id="modal-presentes" class="modal">
+  <div class="modal-content">
+    <h2>🎁 Lista de Presentes</h2>
+    <p>Adicione links aqui depois.</p>
+    <button onclick="closePresentes()" class="close-btn">Fechar</button>
+  </div>
 </div>
 
-<!-- ======================= PÁGINA 2 ======================= -->
-<div id="page2" class="page">
-
-    <!-- Fundo animado -->
-    <div class="stars" id="star-container"></div>
-
-    <!-- Botões estilo Jolie -->
-    <div class="buttons">
-        <a class="btnJolie" href="https://maps.google.com" target="_blank">Local</a>
-        <a class="btnJolie" href="https://wa.me/55SEUNUMERO" target="_blank">Presença</a>
-        <a class="btnJolie" onclick="toggleGifts()">Presentes</a>
-    </div>
-
-    <!-- Música -->
-    <audio id="music" autoplay loop>
-        <source src="musica.mp3" type="audio/mp3">
-    </audio>
-
-</div>
-
-<script>
-/* ------------ AO CLICAR NA PÁGINA 1, ABRE A PÁGINA 2 ------------- */
-document.getElementById("page1").onclick = function () {
-    document.getElementById("page1").style.opacity = "0";
-    setTimeout(() => {
-        document.getElementById("page1").style.display = "none";
-        document.getElementById("page2").classList.add("active");
-        document.getElementById("music").play();
-    }, 800);
-};
-
-/* ---------------- ESTRELAS SUBINDO NA PÁGINA 2 ---------------- */
-function createStars() {
-    const container = document.getElementById("star-container");
-
-    for (let i = 0; i < 45; i++) {
-        let s = document.createElement("div");
-        s.classList.add("starFloat");
-        s.style.left = Math.random() * 100 + "%";
-        s.style.animationDuration = 3 + Math.random() * 4 + "s";
-        s.style.opacity = Math.random();
-        container.appendChild(s);
-    }
-}
-createStars();
-
-/* --------------- LISTA DE PRESENTES ---------------- */
-function toggleGifts() {
-    alert("💝 Lista de presentes será adicionada aqui.");
-}
-</script>
-
+<script src="script.js"></script>
 </body>
 </html>

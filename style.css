@@ -108,24 +108,6 @@ body, html {
   }
 }
 
-@media (min-width: 769px) {
-  .floating-buttons {
-    position: fixed;
-    bottom: 25px;
-    right: 25px;
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .floating-buttons button {
-    padding: 12px 20px;
-    font-size: 15px;
-    border-radius: 25px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  }
-}
-
 /* MODAL */
 .modal {
   position: fixed;

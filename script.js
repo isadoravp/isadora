@@ -1,5 +1,4 @@
-/* ÁUDIO DA PÁGINA 2 */
-const audio = new Audio("assets/musica.mp3"); // coloque seu mp3 depois
+const audio = new Audio("assets/musica.mp3");
 audio.volume = 1.0;
 
 /* ABRIR PÁGINA 2 */

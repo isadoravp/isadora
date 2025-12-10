@@ -11,8 +11,8 @@ document.getElementById("openCard").addEventListener("click", () => {
   setTimeout(() => {
     page2.classList.add("active");
     audio.play().catch(()=>{});
-    }, 400);
-  });
+  }, 400);
+});
 
 /* BOTÕES */
 function openMaps(){
@@ -20,7 +20,7 @@ function openMaps(){
 }
 
 function confirmarPresenca() {
-  window.open("https://wa.me/5551992226662?text=Olá,%20confirmo%20minha%20presença%20no%20evento!","_blank");
+  window.open("https://wa.me/5551992226662?text=Olá,%20confirmo%20minha%20presença%20no%20evento!", "_blank");
 }
 
 function openDress() {
@@ -34,4 +34,3 @@ function openPresentes() {
 function closePresentes() {
   document.getElementById("modal-presentes").classList.remove("active");
 }
-

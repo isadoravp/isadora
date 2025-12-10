@@ -26,6 +26,10 @@ body {
   pointer-events: auto;
 }
 
+.animated-bg {
+  z-index: -2;
+}
+
 /* =============================
    FUNDO ANIMADO COM PARTICULAS
 ============================= */

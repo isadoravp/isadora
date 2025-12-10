@@ -20,10 +20,6 @@ body, html {
             z-index: 3;
         }
 
-.page.active {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 /* FUNDO ANIMADO DOURADO ROSA */
 .animated-bg {

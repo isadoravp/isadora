@@ -2,7 +2,7 @@ body {
   margin: 0;
   overflow: hidden;
   font-family: 'Georgia', serif;
-  background: #000;
+  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
 }
 
 /* =============================

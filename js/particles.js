@@ -1,34 +1,42 @@
-/* PÁGINA 1 - PARTICULAS/GLITTER */
+// PARTICULAS PÁGINA 1
 const page1Container = document.getElementById('page1');
-for (let i=0;i<80;i++){
+
+for(let i=0;i<80;i++){
   const p = document.createElement('div');
   p.className = 'particle';
-  const size = Math.random()*3+1;
-  p.style.width = p.style.height = `${size}px`;
+  p.style.width = p.style.height = `${Math.random()*3+1}px`;
   p.style.left = `${Math.random()*100}%`;
   p.style.top = `${Math.random()*100}%`;
+  p.style.position = 'absolute';
+  p.style.background = '#fff';
+  p.style.borderRadius = '50%';
+  p.style.opacity = 0.8;
   p.style.animation = `sparkle ${Math.random()*3+2}s linear infinite`;
   page1Container.appendChild(p);
 }
 
-/* PÁGINA 2 - ESTRELAS */
-const page2Container = document.querySelector('.convite-container');
-for (let i=0;i<100;i++){
+// ESTRELAS PÁGINA 2
+const page2Container = document.getElementById('page2');
+
+for(let i=0;i<100;i++){
   const s = document.createElement('div');
   s.className = 'star';
-  const size = Math.random()*2+1;
-  s.style.width = s.style.height = `${size}px`;
+  s.style.width = s.style.height = `${Math.random()*2+1}px`;
   s.style.left = `${Math.random()*100}%`;
   s.style.top = `${Math.random()*100}%`;
+  s.style.position = 'absolute';
+  s.style.background = '#fff';
+  s.style.borderRadius = '50%';
+  s.style.opacity = 0.8;
   s.style.animation = `twinkle ${Math.random()*3+1}s infinite alternate`;
   page2Container.appendChild(s);
 }
 
-/* KEYFRAMES */
+// Keyframes
 const style = document.createElement('style');
 style.innerHTML = `
 @keyframes sparkle {
-  0%,100% { transform: translateY(0) scale(0.5); opacity:0.5; }
+  0%,100% { transform: translateY(0) scale(0.5); opacity:0.8; }
   50% { transform: translateY(-50px) scale(1.2); opacity:1; }
 }
 @keyframes twinkle {

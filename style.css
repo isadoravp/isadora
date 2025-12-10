@@ -21,10 +21,6 @@ body, html {
 
 }
 
-.page.active {
-  opacity: 1;
-  pointer-events: auto;
-}
 
 
 /* FUNDO ANIMADO DOURADO ROSA */

@@ -1,20 +1,19 @@
-body, html {
+body {
   margin: 0;
-  padding: 0;
-  width: 100%;
-  height: 100%;
   overflow: hidden;
   font-family: 'Georgia', serif;
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
+  background: #000;
 }
 
+/* =============================
+   PAGINAS
+============================= */
 .page {
   width: 100vw;
   height: 100vh;
   position: absolute;
   top: 0; left: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   opacity: 0;
@@ -27,23 +26,21 @@ body, html {
   pointer-events: auto;
 }
 
-
-/* FUNDO ANIMADO DOURADO ROSA */
+/* =============================
+   FUNDO ANIMADO COM PARTICULAS
+============================= */
 .animated-bg {
   position: fixed;
   width: 100%;
   height: 100%;
-  background: radial-gradient(rgba(255,200,150,0.25), rgba(255,150,200,0.15), transparent);
-  animation: glow 6s infinite alternate;
+  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168,51,33,0.3), #00498e);
+  overflow: hidden;
   z-index: -1;
 }
 
-@keyframes glow {
-  from { filter: brightness(1); }
-  to   { filter: brightness(1.35); }
-}
-
-/* CARTA */
+/* =============================
+   CARTA (PÁGINA 1)
+============================= */
 .card-container {
   width: 90vw;
   max-width: 500px;
@@ -62,13 +59,9 @@ body, html {
   50% { transform: translateY(5px); }
 }
 
-.tap-text {
-  color: #ffe8f5;
-  font-size: 18px;
-  margin-top: 15px;
-}
-
-/* PÁGINA 2 — CONVITE */
+/* =============================
+   CONVITE (PÁGINA 2)
+============================= */
 .convite-container {
   width: 90vw;
   max-width: 600px;
@@ -87,28 +80,66 @@ body, html {
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* BOTÕES FLUTUANTES */
+/* =============================
+   BOTÕES FLUTUANTES
+============================= */
+.floating-buttons {
+  display: flex;
+  gap: 12px;
+  z-index: 5;
+}
+
 @media (max-width: 768px) {
   .floating-buttons {
-    position: absolute;          /* Fica sobre a moldura */
-    bottom: 10px;                /* Próximo à borda inferior do convite */
-    left: 50%;                   /* Centralizado horizontalmente */
-    transform: translateX(-50%); /* Ajusta centralização */
-    display: flex;               /* Fica horizontal */
-    flex-direction: row;         /* Linha horizontal */
-    gap: 8px;                    /* Espaçamento entre botões */
-    z-index: 5;
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    flex-direction: row;
+    gap: 8px;
   }
 
   .floating-buttons button {
-    padding: 6px 10px;           /* Reduz tamanho do botão */
-    font-size: 12px;             /* Fonte menor */
-    border-radius: 15px;         /* Bordas menores */
+    padding: 6px 10px;
+    font-size: 12px;
+    border-radius: 15px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.25);
   }
 }
 
-/* MODAL */
+@media (min-width: 769px) {
+  .floating-buttons {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    flex-direction: column;
+  }
+
+  .floating-buttons button {
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
+}
+
+.floating-buttons button {
+  background: linear-gradient(135deg, #ffcbdb, #d29400);
+  border: none;
+  color: #4a2c00;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.floating-buttons button:hover {
+  transform: scale(1.07);
+  filter: brightness(1.15);
+}
+
+/* =============================
+   MODAL
+============================= */
 .modal {
   position: fixed;
   top: 0; left: 0;

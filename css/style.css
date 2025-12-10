@@ -3,10 +3,9 @@
 ============================= */
 body {
   margin: 0;
-  height: 100vh;
   overflow: hidden;
   font-family: 'Georgia', serif;
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168, 51, 33, 0.3), #00498e);
+  background: #000;
 }
 
 /* =============================

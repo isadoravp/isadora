@@ -88,31 +88,42 @@ body, html {
 }
 
 /* BOTÕES FLUTUANTES */
-.floating-buttons {
-  position: fixed;
-  bottom: 25px;
-  right: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+@media (max-width: 768px) {
+  .floating-buttons {
+    position: absolute;          /* Fica sobre a moldura */
+    bottom: 10px;                /* Próximo à borda inferior do convite */
+    left: 50%;                   /* Centralizado horizontalmente */
+    transform: translateX(-50%); /* Ajusta centralização */
+    display: flex;               /* Fica horizontal */
+    flex-direction: row;         /* Linha horizontal */
+    gap: 8px;                    /* Espaçamento entre botões */
+    z-index: 5;
+  }
+
+  .floating-buttons button {
+    padding: 6px 10px;           /* Reduz tamanho do botão */
+    font-size: 12px;             /* Fonte menor */
+    border-radius: 15px;         /* Bordas menores */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+  }
 }
 
-.floating-buttons button {
-  background: linear-gradient(135deg, #ffcbdb, #d29400);
-  border: none;
-  padding: 12px 20px;
-  border-radius: 25px;
-  color: #4a2c00;
-  font-weight: bold;
-  font-size: 15px;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: 0.3s;
-}
+@media (min-width: 769px) {
+  .floating-buttons {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
 
-.floating-buttons button:hover {
-  transform: scale(1.07);
-  filter: brightness(1.15);
+  .floating-buttons button {
+    padding: 12px 20px;
+    font-size: 15px;
+    border-radius: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  }
 }
 
 /* MODAL */

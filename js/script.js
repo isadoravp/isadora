@@ -1,169 +1,36 @@
-body {
-  margin: 0;
-  overflow: hidden;
-  font-family: 'Georgia', serif;
-  background: #000;
+// ÁUDIO PÁGINA 2
+const audio = new Audio("assets/musica.mp3");
+audio.volume = 1.0;
+
+// ABRIR PÁGINA 2
+const page1 = document.getElementById("page1");
+const page2 = document.getElementById("page2");
+
+document.getElementById("openCard").addEventListener("click", () => {
+  page1.classList.remove("active");
+  setTimeout(() => {
+    page2.classList.add("active");
+    audio.play().catch(()=>{});
+  }, 400);
+});
+
+// BOTÕES
+function openMaps(){
+  window.open("https://www.google.com/maps?q=Vip+Festas+Porto+Alegre", "_blank");
 }
 
-.page {
-  width: 100vw;
-  height: 100vh;
-  position: absolute;
-  top: 0; left: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.7s ease;
-  overflow: hidden; /* garante partículas visíveis */
-  position: relative; /* importante para partículas */
+function confirmarPresenca() {
+  window.open("https://wa.me/5551992226662?text=Olá,%20confirmo%20minha%20presença%20no%20evento!", "_blank");
 }
 
-.page.active {
-  opacity: 1;
-  pointer-events: auto;
+function openDress() {
+  alert("Vestimenta: Esporte Fino");
 }
 
-.animated-bg {
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168,51,33,0.3), #00498e);
-  z-index: -2;
+function openPresentes() {
+  document.getElementById("modal-presentes").classList.add("active");
 }
 
-/* CARTA */
-.card-container {
-  width: 90vw;
-  max-width: 500px;
-}
-
-.card {
-  width: 100%;
-  animation: cardFloat 3s ease-in-out infinite;
-  cursor: pointer;
-}
-
-@keyframes cardFloat {
-  0%,100% { transform: translateY(-5px); }
-  50% { transform: translateY(5px); }
-}
-
-/* CONVITE */
-.convite-container {
-  width: 90vw;
-  max-width: 600px;
-  position: relative;
-}
-
-.convite-img {
-  width: 100%;
-  border-radius: 12px;
-  animation: fadeIn 1.2s ease;
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(40px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-
-/* BOTÕES */
-.floating-buttons {
-  display: flex;
-  gap: 8px;
-  position: absolute;
-  bottom: 10px; /* sobre moldura */
-  left: 50%;
-  transform: translateX(-50%);
-  flex-direction: row;
-  z-index: 10;
-}
-
-.floating-buttons button {
-  background: linear-gradient(135deg, #ffcbdb, #d29400);
-  border: none;
-  color: #4a2c00;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-  padding: 6px 10px;
-  font-size: 12px;
-  border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
-}
-
-.floating-buttons button:hover {
-  transform: scale(1.07);
-  filter: brightness(1.15);
-}
-
-/* Desktop */
-@media(min-width: 769px){
-  .floating-buttons {
-    position: fixed;
-    right: 25px;
-    bottom: 25px;
-    flex-direction: column;
-    transform: none;
-  }
-  .floating-buttons button {
-    padding: 12px 20px;
-    font-size: 15px;
-    border-radius: 25px;
-  }
-}
-
-/* MODAL */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  pointer-events: none;
-  transition: 0.4s ease;
-}
-
-.modal.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.modal-content {
-  background: #fff3f9;
-  padding: 20px;
-  width: 80%;
-  max-width: 400px;
-  border-radius: 16px;
-  text-align: center;
-  border: 2px solid #d79b00;
-}
-
-.close-btn {
-  margin-top: 10px;
-  background: #d79b00;
-  color: #fff;
-  border: none;
-  padding: 10px 18px;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* PARTICULAS E ESTRELAS */
-.particle {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.8;
-}
-
-.star {
-  position: absolute;
-  border-radius: 50%;
-  background: #fff;
-  opacity: 0.8;
+function closePresentes() {
+  document.getElementById("modal-presentes").classList.remove("active");
 }

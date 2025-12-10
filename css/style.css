@@ -36,7 +36,18 @@ body {
   height: 100%;
   background: radial-gradient(circle at 50% 50%, #ffc900, rgba(168,51,33,0.3), #00498e);
   overflow: hidden;
-  z-index: -1;
+  z-index: -2;
+}
+
+@keyframes sparkle {
+  0%,100% { transform: translateY(0) scale(0.5); opacity: 0.8; }
+  50% { transform: translateY(-50px) scale(1.2); opacity: 1; }
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(0.5); }
+  50% { opacity: 1; transform: scale(1.2); }
+  100% { opacity: 0.2; transform: scale(0.5); }
 }
 
 /* =============================

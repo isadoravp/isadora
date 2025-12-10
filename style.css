@@ -45,15 +45,16 @@ body, html {
 
 /* CARTA */
 .card-container {
-  width: 340px;
-  max-width: 85%;
+  width: 90vw;
+  max-width: 500px;
+  height: auto;
 }
 
 .card {
   width: 100%;
-  max-width: 600px;
   height: auto;
-  animation: fadeIn 1.5s ease-in-out;
+  animation: cardFloat 3s ease-in-out infinite;
+  cursor: pointer;
 }
 
 @keyframes cardFloat {
@@ -69,12 +70,14 @@ body, html {
 
 /* PÁGINA 2 — CONVITE */
 .convite-container {
-  width: 420px;
-  max-width: 90%;
+  width: 90vw;
+  max-width: 600px;
+  height: auto;
 }
 
 .convite-img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   animation: fadeIn 1.2s ease;
 }
